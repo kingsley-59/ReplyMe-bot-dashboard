@@ -1,9 +1,20 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="container-fluid p-0">
+    <nav class="p-4 d-flex align-items-center bg-light shadow-sm">
+      <div class="brand me-auto">
+        <router-link to="/">
+          <h2 class="text-dark">DantownBot</h2>
+        </router-link>
+      </div>
+      <div class="menu">
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">About</router-link>
+      </div>
+    </nav>
+    <div class="">
+      <router-view />
+    </div>
+  </div>
 </template>
 
 <style>
