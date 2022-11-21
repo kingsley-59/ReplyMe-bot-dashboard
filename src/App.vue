@@ -8,6 +8,8 @@
       </div>
       <div class="menu">
         <router-link to="/">Home</router-link> |
+        <router-link to="/tags">Tags</router-link> |
+        <router-link to="/users">Users</router-link> |
         <router-link to="/about">About</router-link>
       </div>
     </nav>

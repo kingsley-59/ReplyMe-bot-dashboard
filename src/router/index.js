@@ -8,6 +8,16 @@ const routes = [
     component: HomeView
   },
   {
+    path: '/tags',
+    name: 'tags',
+    component: () => import(/* webpackChunkName: "about" */ '../views/TagsView.vue')
+  },
+  {
+    path: '/users',
+    name: 'users',
+    component: () => import(/* webpackChunkName: "about" */ '../views/UsersView.vue')
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting

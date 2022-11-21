@@ -43,9 +43,11 @@ export default {
     const isEmpty = false
     const columns = ref([
       { value: 'Message ID', key: 'messageId' },
-      { value: 'User', key: 'fullname' },
-      { value: 'Content', key: 'content' },
-      { value: 'Replied To', key: 'issuerFullname' },
+      { value: 'Issued By', key: 'issuerFullname' },
+      { value: 'Message', key: 'issueContent' },
+      { value: 'Replied By', key: 'fullname' },
+      { value: 'Response', key: 'content' },
+      { value: 'Message ID', key: 'messageId' },
       { value: 'Delay(secs)', key: 'delay' }
     ])
     const rows = ref([])
@@ -54,21 +56,10 @@ export default {
       const res = await axios.get(`http://localhost:5000/api/v1/raw/messages`)
       let messages = res.data?.data
       let newData = messages.map(msg => {
-        let delayInSecs = calculateTimeDiffInSecs(
-          new Date(msg.issueCreatedAt),
-          new Date(msg.createdAt)
-        )
-        let delay = delayInSecs + 's'
-        if (delayInSecs > 60) {
-          let remainder = Number(delayInSecs % 60).toFixed(0)
-          let whole = Number(delayInSecs / 60).toFixed(0)
-          delay = `${whole}mins ${remainder}s`
-        }
-        let result = {
+        return {
           ...msg,
-          delay: delay
+          createdAt: new Date(msg.createdAt).toLocaleString(),
         }
-        return result
       })
       rows.value = newData
       socketConn.value = socket.connected
@@ -95,8 +86,6 @@ export default {
     })
 
     
-
-
     return {
       socketConn,
       columns,

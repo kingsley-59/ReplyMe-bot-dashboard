@@ -1,7 +1,7 @@
 <template>
     <div class="w-100 table-responsive mx-auto">
         <table class="table table-striped mx-auto mw-100" style="max-width: 400px;">
-            <thead class="table-secondary text-dark">
+            <thead class="table-secondary text-start text-dark">
                 <tr>
                     <th 
                         class="text-nowrap" 
