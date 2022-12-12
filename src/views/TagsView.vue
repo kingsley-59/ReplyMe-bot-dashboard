@@ -51,7 +51,7 @@
       const rows = ref([])
   
       onMounted(async () => {
-        const res = await axios.get(`http://localhost:5000/api/v1/raw/tags`)
+        const res = await axios.get(`${API_URL}/raw/tags`)
         let tags = res.data?.data
         let newData = tags.map(tag => {
           return {
