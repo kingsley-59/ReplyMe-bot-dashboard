@@ -21,7 +21,7 @@ import axios from 'axios';
 import { onMounted, ref } from 'vue'
 import calculateTimeDiff from '@/utils/calculateTimeDiff';
 import { io } from 'socket.io-client'
-import { API_URL } from '../config'
+import { API_URL } from '@/config/index'
 
 const socket = io(API_URL, {
   autoConnect: true

@@ -19,7 +19,7 @@ import TableComp from '@/components/TableComp.vue'
 import { onMounted, ref } from 'vue'
 import axios from 'axios'
 import { io } from 'socket.io-client'
-import { API_URL } from '../config'
+import { API_URL } from '@/config'
 
 const socket = io(API_URL, {
     autoConnect: true
