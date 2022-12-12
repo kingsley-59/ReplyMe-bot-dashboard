@@ -19,9 +19,9 @@ import TableComp from '@/components/TableComp.vue'
 import { onMounted, ref } from 'vue'
 import axios from 'axios'
 import { io } from 'socket.io-client'
+import { API_URL } from '../config'
 
-const BASE_URL = 'http://localhost:5000'
-const socket = io(BASE_URL, {
+const socket = io(API_URL, {
     autoConnect: true
 })
 
@@ -42,7 +42,7 @@ export default {
         const rows = ref([])
 
         onMounted(async () => {
-            const res = await axios.get(`http://localhost:5000/api/v1/users`)
+            const res = await axios.get(`${API_URL}/users`)
             let members = res.data?.data
             let newData = members.map(member => {
                 return {

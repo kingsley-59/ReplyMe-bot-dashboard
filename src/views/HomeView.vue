@@ -21,9 +21,9 @@ import axios from 'axios';
 import { onMounted, ref } from 'vue'
 import calculateTimeDiff from '@/utils/calculateTimeDiff';
 import { io } from 'socket.io-client'
+import { API_URL } from '../config'
 
-const BASE_URL = 'http://localhost:5000'
-const socket = io(BASE_URL, {
+const socket = io(API_URL, {
   autoConnect: true
 })
 
@@ -53,7 +53,7 @@ export default {
     const rows = ref([])
 
     onMounted(async () => {
-      const res = await axios.get(`http://localhost:5000/api/v1/raw/messages`)
+      const res = await axios.get(`${API_URL}/raw/messages`)
       let messages = res.data?.data
       let newData = messages.map(msg => {
         return {

@@ -21,9 +21,9 @@
   import { onMounted, ref } from 'vue'
   import calculateTimeDiff from '@/utils/calculateTimeDiff';
   import { io } from 'socket.io-client'
+  import { API_URL } from '../config'
   
-  const BASE_URL = 'http://localhost:5000'
-  const socket = io(BASE_URL, {
+  const socket = io(API_URL, {
     autoConnect: true
   })
   
